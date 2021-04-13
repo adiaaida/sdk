@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en" target-language="ja" original="../LocalizableStrings.resx">
+    <body>
+      <trans-unit id="AllOptionDescription">
+        <source>Specifies that all verifications possible should be performed to the package(s).</source>
+        <target state="new">Specifies that all verifications possible should be performed to the package(s).</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="CertificateFingerPrintOptionDescription">
+        <source>Verify that the signer certificate matches with one of the specified SHA256 fingerprints. A certificate SHA256 fingerprint is a SHA256 hash of the certificate used to identify the certificate. Use the option multiple times for multiple certificate fingerprints.</source>
+        <target state="new">Verify that the signer certificate matches with one of the specified SHA256 fingerprints. A certificate SHA256 fingerprint is a SHA256 hash of the certificate used to identify the certificate. Use the option multiple times for multiple certificate fingerprints.</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="PackagePathsArgumentDescription">
+        <source>Specify the paths to the package(s).</source>
+        <target state="new">Specify the paths to the package(s).</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="PackagePathsArgumentName">
+        <source>&lt;package-paths&gt;</source>
+        <target state="new">&lt;package-paths&gt;</target>
+        <note />
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

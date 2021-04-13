@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using System.CommandLine;
+using LocalizableStrings = Microsoft.DotNet.Tools.NuGet.LocalizableStrings;
 
 namespace Microsoft.DotNet.Cli
 {
@@ -80,24 +81,19 @@ namespace Microsoft.DotNet.Cli
             const string fingerprint = "--certificate-fingerprint";
             var verifyCommand = new Command("verify");
 
-            verifyCommand.AddArgument(new Argument<IEnumerable<string>>() { Arity = ArgumentArity.OneOrMore });
+            verifyCommand.AddArgument(new Argument<IEnumerable<string>>(LocalizableStrings.PackagePathsArgumentName)
+            {
+                Description = LocalizableStrings.PackagePathsArgumentDescription,
+                Arity = ArgumentArity.OneOrMore
+            });
 
-            verifyCommand.AddOption(new Option<bool>("--all"));
-            verifyCommand.AddOption(new ForwardedOption<IEnumerable<string>>(fingerprint, "certificatefingerprint")
-                .ForwardAsMany(o => ForwardedArguments(fingerprint, o))
+            verifyCommand.AddOption(new ForwardedOption<bool>("--all", LocalizableStrings.AllOptionDescription));
+            verifyCommand.AddOption(new ForwardedOption<IEnumerable<string>>(fingerprint, LocalizableStrings.CertificateFingerPrintOptionDescription)
+                .ForwardAsManyArgumentsEachPrefixedByOption(fingerprint)
                 .AllowSingleArgPerToken());
             verifyCommand.AddOption(CommonOptions.VerbosityOption());
 
             return verifyCommand;
-        }
-
-        private static IEnumerable<string> ForwardedArguments(string token, IEnumerable<string> arguments)
-        {
-            foreach (string arg in arguments)
-            {
-                yield return token;
-                yield return arg;
-            }
         }
     }
 }
